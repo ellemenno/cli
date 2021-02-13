@@ -178,7 +178,8 @@ directives](#parser-directives), [comments](#format), and globally scoped
 [ARGs](#arg). The `FROM` instruction specifies the [*Parent
 Image*](https://docs.docker.com/glossary/#parent_image) from which you are
 building. `FROM` may only be preceded by one or more `ARG` instructions, which
-declare arguments that are used in `FROM` lines in the `Dockerfile`.
+declare arguments that are used in `FROM` lines in the `Dockerfile` (see
+[Understand how ARG and FROM interact](#understand-how-arg-and-from-interact)).
 
 Docker treats lines that *begin* with `#` as a comment, unless the line is
 a valid [parser directive](#parser-directives). A `#` marker anywhere
@@ -1821,6 +1822,9 @@ ARG user1
 ARG buildno
 # ...
 ```
+
+`ARG` is the only instruction that may precede `FROM` in the `Dockerfile`. See 
+[Understand how ARG and FROM interact](#understand-how-arg-and-from-interact).
 
 > **Warning:**
 >
